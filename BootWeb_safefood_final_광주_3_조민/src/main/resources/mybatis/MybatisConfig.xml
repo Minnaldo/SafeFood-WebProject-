@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <typeAliases>
+  	<typeAlias type="edu.ssafy.food.dto.MemVO" alias="member"/>
+  	<typeAlias type="edu.ssafy.food.dto.FoodVO" alias="food"/>
+  	<typeAlias type="edu.ssafy.food.dto.QnaVO" alias="qna"/>
+  	<typeAlias type="edu.ssafy.food.dto.AnnounceVO" alias="announce"/>
+  </typeAliases>
+  <mappers>
+    <mapper resource="mybatis/member_sql.xml"/>
+    <mapper resource="mybatis/food_sql.xml"/>
+    <mapper resource="mybatis/qna_sql.xml"/>
+    <mapper resource="mybatis/announce_sql.xml"/>
+    <!-- <mapper resource="mybatis/member_sql.xml"/> -->
+  </mappers>
+</configuration>

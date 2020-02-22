@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sql.qna">
+
+	<select id="selectlistQna" resultType="qna">
+		select num, img, title, name, status, date, content
+		from qna
+	</select>
+	<select id="selectoneQna" parameterType="String" resultType="qna">
+		select * from qna where num = #{num}
+	</select>
+	
+	
+	<insert id="insertQna" parameterType="qna">
+		insert into qna(num, img, title, name, status, date, content)
+		values(#{num}, #{img}, #{title},#{name},#{status},#{date},#{content})
+	</insert>
+
+
+	<update id="updateQna" parameterType="qna">
+		update qna set img = #{img}, title = #{title},
+				 name = #{name}, status = #{status}, 
+				 date = #{date}, content = #{content} where num =#{num}
+	</update>
+	
+	<delete id="deleteQna" parameterType="string">
+		delete from qna where num = #{num}
+	</delete>
+	
+</mapper>

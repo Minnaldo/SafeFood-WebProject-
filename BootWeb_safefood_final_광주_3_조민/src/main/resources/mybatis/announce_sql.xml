@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sql.announce">
+
+	<select id="selectlistAnnounce" resultType="announce">
+		select anum, atitle, awriter, adate, acnt, alike
+		from announce
+	</select>
+	<select id="selectoneAnnounce" parameterType="String" resultType="announce">
+		select * from announce where anum = #{anum}
+	</select>
+	
+	<insert id="insertAnnounce" parameterType="announce">
+		insert into announce(anum, atitle, awriter, acontent, adate, acnt, alike, areply)
+		values(#{anum}, #{atitle}, #{awriter}, #{acontent}, #{adate},#{acnt},#{alike}, #{areply})
+	</insert>
+	
+	<update id="updateAnnounce" parameterType="announce">
+		update announce set atitle = #{atitle}, awriter = #{awriter},
+				 acontent = #{acontent},
+				 adate = #{adate}, acnt = #{acnt}, 
+				 alike = #{alike}, areply = #{areply} where anum =#{anum}
+	</update>
+	
+	<delete id="deleteAnnounce" parameterType="string">
+		delete from announce where anum = #{anum}
+	</delete>
+	
+</mapper>
